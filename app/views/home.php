@@ -10,9 +10,13 @@
     <link rel="icon" type="image/x-icon" href="../../public/img/icon.ico" />
     <title>Inicio | Marvel Comic Library</title>
     <script defer src="https://kit.fontawesome.com/707789a0bc.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js"></script>
+    <script defer async src="../../public/js/app.js"></script>
+
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="container-fluid">
             <ul class="navbar-nav">
@@ -28,43 +32,10 @@
     </nav>
 
     <div class="container mt-3">
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <div class="card bg-dark m-3">
-                    <img class="card-img-top" src="imagen1.jpg" alt="Imagen 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-white">Título imagen 1</h5>
-                        <p class="card-text text-white">Descripción imagen 1.</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-danger"><i class="fa-solid fa-heart-circle-plus mx-1"></i>Añadir</i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card bg-dark m-3">
-                    <img class="card-img-top" src="imagen1.jpg" alt="Imagen 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-white">Título imagen 2</h5>
-                        <p class="card-text text-white">Descripción imagen 2.</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-danger"><i class="fa-solid fa-heart-circle-plus mx-1"></i>Añadir</i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-3">
-                <div class="card bg-dark m-3">
-                    <img class="card-img-top" src="imagen1.jpg" alt="Imagen 1">
-                    <div class="card-body">
-                        <h5 class="card-title text-white">Título imagen 3</h5>
-                        <p class="card-text text-white">Descripción imagen 3.</p>
-                        <div class="d-flex justify-content-end">
-                            <button class="btn btn-danger"><i class="fa-solid fa-heart-circle-plus mx-1"></i>Añadir</i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row" id="results-container">
+        </div>
+        <div class="d-flex justify-content-center m-4">
+            <button class="btn btn-primary" id="show-more-button">Ver más</button>
         </div>
     </div>
     <footer class="footer mt-auto py-3 bg-dark">
