@@ -27,6 +27,66 @@
         </div>
     </nav>
 
+    <div class="container mt-3">
+
+    <h2>Lista de comics favoritos</h2>
+        <div class="row" id="results-container">
+            <?php
+
+            function getImageComic($images)
+            {
+                $img = '../../public/img/default-comic-cover.png';
+                if (count($images) > 0) {
+                    $img = $images[0]->path . '.' . $images[0]->extension;
+                }
+                return $img;
+            }
+
+            require_once '../../config/database.php';
+            $query  = "SELECT * FROM comic";
+            $result = mysqli_query($conn, $query);
+
+            if ($result == true) {
+                if (mysqli_num_rows($result) > 0) {
+                    foreach ($result as $row) {
+                        $data_comic = json_decode($row['data_comic']);
+
+            ?>
+                        <div class="col-md-4 mb-3">
+                            <div class="card bg-dark m-3">
+                                <img class="card-img-top" src="<?php echo getImageComic($data_comic->images) ?>" alt="Imagen 1">
+                                <div class="card-body">
+                                    <h5 class="card-title text-white"><?php echo $data_comic->title ?></h5>
+                                    <p class="card-text text-white">$<?php echo $data_comic->description ?></p>
+                                </div>
+                            </div>
+                        </div>
+
+            <?php
+                    }
+                } else {
+                    echo '<script type="text/javascript">
+                alert("No hay comics favoritos");
+                </script>';
+                }
+            } else {
+                echo '<script type="text/javascript">
+              alert("Error al consultar favoritos");
+              </script>';
+            }
+
+            ?>
+
+
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-dark">
+        <div class="container text-center">
+            <span class="text-white">Data provided by Marvel. © 2014 Marvel</span>
+        </div>
+    </footer>
+
 </body>
 
 </html>
