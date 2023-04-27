@@ -25,17 +25,17 @@
                 <label>Nro. de documento</label>
             </div>
             <div class="txt_field">
-                <input type="text" required name="email">
+                <input type="email" required name="email">
                 <span></span>
                 <label>Correo electrónico</label>
             </div>
             <div class="txt_field">
-                <input type="text" required name="username">
+                <input type="text" required name="username" minlength="3">
                 <span></span>
                 <label>Usuario</label>
             </div>
             <div class="txt_field">
-                <input type="password" required name="password_hash">
+                <input type="password" required name="password_hash" minlength="8">
                 <span></span>
                 <label>Contraseña</label>
             </div>

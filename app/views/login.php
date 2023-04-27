@@ -24,7 +24,7 @@
                 <span></span>
                 <label>Contraseña</label>
             </div>
-            <input type="submit" value="Login" name="login">
+            <input type="submit" value="Enviar" name="login">
             <div class="signup_link">
                 No estas registrado? <a href="./app/views/signup.php">Registrarse</a>
             </div>
