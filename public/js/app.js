@@ -44,8 +44,9 @@ const checkFavorite = (data_result) => {
         .then(resp => resp.json())
 
         .then(data => {
-            if (data.message == data_result) {
-                let boton = document.getElementById(data_result);
+            if (data.message !== "false") {
+                let boton = document.getElementById(data.message);
+                console.log('boton', boton)
                 boton.disabled = true;
             }
         })
