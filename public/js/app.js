@@ -26,8 +26,28 @@ const addFavorite = (data) => {
     })
 
         .then(response => response.json())
+        .then(data_res => {
+            alert(data_res.message)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+const checkFavorite = (data_result) => {
+    let id = { id: data_result };
+    fetch('../../app/controllers/check-favorite.php', {
+        method: 'POST',
+        body: JSON.stringify(id),
+    })
+
+        .then(resp => resp.json())
+
         .then(data => {
-            alert(data.message)
+            if (data.message == data_result) {
+                let boton = document.getElementById(data_result);
+                boton.disabled = true;
+            }
         })
         .catch(error => {
             console.error('Error:', error);
@@ -58,9 +78,10 @@ const loadComics = () => {
                 fragment.appendChild(div);
                 document.getElementById('results-container').appendChild(fragment);
 
+                checkFavorite(result.id);
 
-
-                document.getElementById(result.id).addEventListener('click', () => {
+                document.getElementById(result.id).addEventListener('click', (e) => {
+                    e.target.disabled = true;
                     addFavorite(result);
                 });
             })
