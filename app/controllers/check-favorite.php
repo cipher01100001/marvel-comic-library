@@ -1,12 +1,13 @@
 <?php
 
+session_start();
 
 $data = json_decode(file_get_contents('php://input'), true);
 
-
 if (isset($data)) {
     require_once '../../config/database.php';
-    $query  = "SELECT * FROM comic";
+    $session_id = $_SESSION['id_user'];
+    $query  = "SELECT * FROM comic WHERE id_user='$session_id'";
     $result = mysqli_query($conn, $query);
 
     $match = false;
